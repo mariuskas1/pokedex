@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokedex</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <link rel="icon" type="image/png" href="img/48.png"/>
+</head>
+<body onload="init()">
+    <header>
+        <div class="header-logo">
+            <img src="img/pokeball.png">
+            <h1>Pokedex</h1>
+        </div>
+        <input type="text">
+    </header>
+
+    <main>
+        <div class="card-container" id="card-container"></div>
+        <div class="dialog-bg d-none" id="dialog" onclick="closeImage()">
+            <div class="dialog">
+                <img onclick="previousImage(); event.stopPropagation();" class="icon" id="left-icon" src="img/icons/left.svg">
+                <div class="opened-card" id="opened-card"></div>
+                <img onclick="nextImage(); event.stopPropagation();" class="icon" id="right-icon" src="img/icons/right.svg">
+            </div>
+        
+        
+        </div>
+        <button class="loadMoreBtn" onclick="loadMore()">LOAD MORE</button>
+
+    </main>
+
+   
+    
+</body>
+</html>

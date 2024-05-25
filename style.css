@@ -1,0 +1,273 @@
+body{
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+main{
+    background-color: rgb(7, 7, 31);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(23, 23, 49);
+    color: white;
+    padding-right: 80px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+
+.loadMoreBtn{
+    color: white;
+    background-color: rgb(23, 23, 49);
+    padding: 16px;
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 32px;
+}
+
+.loadMoreBtn:hover{
+    cursor: pointer;
+    background-color: rgb(27, 27, 56);
+}
+
+.header-logo{
+    display: flex;
+    align-items: center;
+    padding-left: 80px;
+}
+
+.header-logo img{
+    width: 32px;
+    height: 100%;
+}
+
+.card-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 24px;
+    padding-bottom: 24px;
+}
+
+.card-small{
+    width: 240px;
+    margin: 16px;
+}
+
+.card-small .poke-img-sm{
+    transition: transform 0.3s ease;;
+}
+
+.card-small:hover{
+    cursor: pointer;
+}
+
+.card-small:hover .poke-img-sm{
+    transform: scale(1.2);
+}
+
+.header-card-sm{
+    display: flex;
+    align-items: center;
+    background-color: rgb(23, 23, 49);
+    padding-left: 8px;
+}
+
+.footer-card-sm{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(23, 23, 49);
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.type-icon{
+    width: 32px;
+    height: auto;
+    margin-right: 8px;
+}
+
+h2{
+    color:white;
+    margin-left: 16px; 
+}
+
+.id{
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.poke-img-sm{
+    width: 120px;
+    height: auto;
+}
+
+.img-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+}
+
+.dialog{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.opened-card{
+    background-color: rgb(23, 23, 49);
+    width: 400px;
+}
+
+.header-card-l{
+    display: flex;
+    align-items: center;
+    background-color: rgb(23, 23, 49);
+    padding-left: 8px;
+}
+
+.poke-img-l{
+    width: 140px;
+    height: auto;
+}
+
+.footer-card-l{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(23, 23, 49);
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.stats{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+table{
+    color: white;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    width: 25%;
+    margin-right: 8px;
+}
+
+.stats-bars{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 50%;
+    height: 100%;
+}
+
+.stats-bar{
+    background-color: white;
+    height: 8px;
+    margin: 7px;
+    max-width: 100% !important;
+}
+
+.icon{
+    width: 52px;
+    height: 52px;
+    filter: invert(1);
+} 
+
+.icon:hover{
+    cursor: pointer;
+}
+
+#left-icon{
+    margin-right: 56px;
+}
+
+#right-icon{
+
+    margin-left: 56px;
+}
+
+.normal{
+    background-color: #A8A77A;
+}
+.fire{
+    background-color: #EE8130;
+}
+.water{
+    background-color: #6390F0;
+}
+.electric{
+    background-color: #F7D02C;
+}
+.grass{
+    background-color: #7AC74C;
+}
+.ice{
+    background-color: #96D9D6;
+}
+.fighting{
+    background-color: #C22E28;
+}
+.poison{
+    background-color: #A33EA1;
+}
+.ground{
+    background-color: #E2BF65;
+}
+.flying{
+    background-color: #A98FF3;
+}
+.psychich{
+    background-color: #F95587;
+}
+.bug{
+    background-color: #A6B91A;
+}
+.rock{
+    background-color: #B6A136;
+}
+.ghost{
+    background-color: #735797;
+}
+.dragon{
+    background-color: #6F35FC;
+}
+.dark{
+    background-color: #705746;
+}
+.steel{
+    background-color: #B7B7CE;
+}
+.fairy{
+    background-color: #D685AD;
+}
+
+
+.dialog-bg {
+    background-color: rgb(0, 0, 0, 0.9);
+    z-index: 10;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.d-none{
+    display: none;
+}
