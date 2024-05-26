@@ -127,7 +127,7 @@ h2{
 
 .opened-card{
     background-color: rgb(23, 23, 49);
-    width: 400px;
+    width: 350px;
 }
 
 .header-card-l{
@@ -148,7 +148,7 @@ h2{
     align-items: center;
     background-color: rgb(23, 23, 49);
     padding-top: 8px;
-    padding-bottom: 8px;
+    padding-bottom: 16px;
 }
 
 .stats{
@@ -270,4 +270,74 @@ table{
 
 .d-none{
     display: none;
+}
+
+.hide-icons{
+    display: none;
+    margin-bottom: 80px;
+    margin-top: 80px;
+}
+
+.hidden-icon{
+    width: 52px;
+    height: 52px;
+    filter: invert(1);
+} 
+
+.hidden-icon:hover{
+    cursor:pointer;
+}
+
+.icons-mobile{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+@media(max-width: 600px){
+    .icon{
+        display: none;
+    }
+    .hide-icons{
+        display: block;
+    }
+    .dialog{
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;
+    }
+}
+
+@media(max-width: 560px){
+    .card-small{
+        width: 70%;
+        margin: 0 0 32px 0;
+    }
+
+    h1{
+        display: none;
+    }
+
+    header{
+        padding-top: 32px;
+        padding-bottom: 32px;
+        padding-right: 0;
+        justify-content: center;
+    }
+    .header-logo img{
+        width: 48px;
+        height: 100%;
+        margin-right: 32px;
+    }
+
+    .header-logo{
+        padding-left: 0;
+    }
+
+}
+
+@media(max-width: 480px){
+    .opened-card{
+        width: 90%;
+    }
 }
