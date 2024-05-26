@@ -14,7 +14,7 @@
             <img src="img/pokeball.png">
             <h1>Pokedex</h1>
         </div>
-        <input type="text">
+        <input type="text" oninput="performSearch(this.value)">
     </header>
 
     <main>
@@ -31,10 +31,14 @@
                     </div>
                 </div>
             </div>
-        
-        
         </div>
-        <button class="loadMoreBtn" onclick="loadMore()">LOAD MORE</button>
+
+        <div class="loading-dialog d-none" id="loading-dialog">
+            <img src="img/spinner-solid.svg" class="loading-img">
+            <span class="loading-text">Loading...</span>
+        </div>
+
+        <button class="loadMoreBtn" id="loadMoreBtn" onclick="loadMore()">LOAD MORE</button>
 
     </main>
 

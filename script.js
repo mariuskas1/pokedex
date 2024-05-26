@@ -1,6 +1,7 @@
 let pokemons = [];
 let next20 = "https://pokeapi.co/api/v2/pokemon?offset=20&limit=20";
 let currentImageIndex;
+let isLoading = true;
 
 const typeIcons = {
     bug: "img/icons/bug.webp",
@@ -24,8 +25,11 @@ const typeIcons = {
   };
 
 async function init() {
+  showLoadingScreen();
   await getPokemons();
-  displayPokemons();
+  hideLoadingScreen();
+  isLoading = false;
+  displayPokemons(pokemons);
 }
 
 async function getPokemons() {
@@ -47,7 +51,7 @@ async function getPokeData(url) {
   pokemons.push(dataResponseJson);
 }
 
-function displayPokemons() {
+function displayPokemons(pokemons) {
   let cardContainer = document.getElementById("card-container");
   cardContainer.innerHTML = "";
 
@@ -78,9 +82,7 @@ function displayPokemons() {
 
 function displayFooter(i, types) {
   let cardFooter = document.querySelectorAll(".footer-card-sm")[i];
-  cardFooter.innerHTML = types
-    .map((type) => `<img class="type-icon" src="${typeIcons[type]}">`)
-    .join("");
+  cardFooter.innerHTML = types.map((type) => `<img class="type-icon" src="${typeIcons[type]}">`).join("");
 }
 
 
@@ -94,6 +96,7 @@ function openCard(i) {
     let image = pokemon.sprites.other.dream_world.front_default;
 
   dialog.classList.remove("d-none");
+  document.getElementById("opened-card").innerHTML = '';
   document.getElementById("opened-card").innerHTML += `
         <div class="header-card-l">
             <span class="id">#${pokemon.id}</span>
@@ -134,9 +137,7 @@ function displayStats(i){
 
 function displayFooterLarge(i, types) {  
     let cardFooter = document.querySelector(".footer-card-l");
-    cardFooter.innerHTML = types
-      .map((type) => `<img class="type-icon" src="${typeIcons[type]}">`)
-      .join("");
+    cardFooter.innerHTML = types.map((type) => `<img class="type-icon" src="${typeIcons[type]}">`).join("");
   }
 
 
@@ -169,10 +170,55 @@ function previousImage(){
     }
 }
 
+function performSearch(input){
+    let namesOfDisplayedPokemon = pokemons.map(pokemon => pokemon.name);
+    let indexesOfNames = [];
+
+    if (input.trim().length >= 3){
+      namesOfDisplayedPokemon.forEach((name, index) => {
+        if (name.toLowerCase().includes(input.toLowerCase())) {
+            indexesOfNames.push(index);
+        }
+      });
+      displayResults(indexesOfNames);
+    } else if (input.trim().length < 3 && input.trim().length > 0){
+          console.log('enter min 3 chars')
+    } else if (input.trim().length === 0){
+          resetSearch();
+    }
+  }
+    
+  
+function displayResults(indexesOfNames){
+  document.getElementById("card-container").innerHTML = '';
+  let filteredPokemons = pokemons.filter((pokemon, index) => indexesOfNames.includes(index));
+  displayPokemons(filteredPokemons);
+  document.getElementById('loadMoreBtn').style.display = 'none';
+}
+
+
+function resetSearch(){
+  document.getElementById("card-container").innerHTML = '';
+  displayPokemons(pokemons);
+  document.getElementById('loadMoreBtn').style.display = 'block';
+}
 
 
 async function loadMore() {
+    isLoading = true;
+    showLoadingScreen();
     await getPokemons();
-    displayPokemons();
+    hideLoadingScreen();
+    isLoading = false;
+    displayPokemons(pokemons);
   }
+
   
+function showLoadingScreen(){
+  document.getElementById('loading-dialog').classList.remove('d-none');
+}
+
+
+function hideLoadingScreen(){
+  document.getElementById('loading-dialog').classList.add('d-none');
+}
